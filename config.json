@@ -1,4 +1,7 @@
 {
-  "tokens": [],
-  "owners": []
+  "tokens": [
+    "YOUR_DISCORD_TOKEN_1",
+    "YOUR_DISCORD_TOKEN_2"
+  ],
+  "owners": ["YOUR_DISCORD_USER_ID"]
 }
