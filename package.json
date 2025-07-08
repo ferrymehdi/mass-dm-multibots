@@ -1,0 +1,19 @@
+{
+  "name": "mass-dm-multibots",
+  "module": "index.ts",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "start": "bun run index.ts",
+    "build": "bun build index.ts --outdir dist --target bun"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "discord.js": "^14.21.0"
+  }
+}
