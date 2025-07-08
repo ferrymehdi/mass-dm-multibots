@@ -1,0 +1,36 @@
+name: TypeScript Check
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  typescript-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+        
+    - name: Install dependencies
+      run: bun install
+      
+    - name: TypeScript compilation check
+      run: bunx tsc --noEmit
+      
+    - name: Report success
+      if: success()
+      run: echo "✅ TypeScript compilation successful - no errors found!"
+      
+    - name: Report failure
+      if: failure()
+      run: |
+        echo "❌ TypeScript compilation failed - please fix the errors above"
+        exit 1
