@@ -41,10 +41,6 @@ config.tokens.forEach((token: string, index: number) => {
       await command.execute(interaction);
     } catch (error) {
       console.error(error);
-      await interaction.reply({
-        content: "There was an error while executing this command!",
-        ephemeral: true,
-      });
     }
   });
 
@@ -59,10 +55,3 @@ process.on("unhandledRejection", (error) => {
 process.on("uncaughtException", (error) => {
   console.error("Uncaught exception:", error);
 });
-
-process.on("SIGINT", () => {
-  console.log("Shutting down gracefully...");
-  clients.forEach((client) => client.destroy());
-  process.exit(0);
-});
-
